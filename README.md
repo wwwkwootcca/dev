@@ -1,4 +1,4 @@
-# wwwkwootcca
-Development repository for www.kwootc.ca
+# www.kwootc.ca
+Development repository
 
 https://wwwkwootcca.github.io/dev/
