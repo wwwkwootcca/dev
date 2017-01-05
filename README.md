@@ -1,4 +1,4 @@
 # www.kwootc.ca
 Development repository
-<hr noshade size="300">
+<hr noshade style="height:3px">
 [wwwkwootcca.github.io/dev/](https://wwwkwootcca.github.io/dev/ "Click to go to development site.")
