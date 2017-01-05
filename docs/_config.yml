@@ -6,8 +6,6 @@ show_downloads: ["true"]
 my_google_analytics: [Your Google Analytics tracking ID - Remove the my_ when you figure this out]
 markdown: kramdown
 
-# https://daringfireball.net/projects/markdown/
-# http://packetlife.net/media/library/16/Markdown.pdf
-# https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+# https://help.github.com/articles/basic-writing-and-formatting-syntax/
 
 permalink: /diary/:year/:month/:day/:title
