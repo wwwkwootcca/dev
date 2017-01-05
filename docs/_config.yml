@@ -9,3 +9,5 @@ markdown: kramdown
 # https://daringfireball.net/projects/markdown/
 # http://packetlife.net/media/library/16/Markdown.pdf
 # https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+
+permalink: /diary/:year/:month/:day/:title
