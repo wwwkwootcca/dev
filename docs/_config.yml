@@ -1,3 +1,7 @@
 theme: jekyll-theme-slate
 name: www.kwootc.ca Development Website
+title: [www.kwootc.ca Development]
+description: [www.kwootc.ca Development Repository]
+show_downloads: ["true"]
+my_google_analytics: [Your Google Analytics tracking ID - Remove the my_ when you figure this out]
 markdown: kramdown
