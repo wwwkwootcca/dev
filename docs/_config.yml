@@ -9,3 +9,7 @@ markdown: kramdown
 # https://help.github.com/articles/basic-writing-and-formatting-syntax/
 
 permalink: /diary/:year/:month/:day/:title
+
+gems:
+  - jekyll-sitemap
+  - jekyll-paginate
