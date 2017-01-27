@@ -15,7 +15,7 @@ site.github = '```{{site.github|jsonify}}```'
 
 post = '```{{post|jsonify}}```'
 
-page = '```{{page|jsonify}}```'
+page = '```{{page|escape|jsonify}}```'
 
 layout = '```{{layout|jsonify}}```'
 
