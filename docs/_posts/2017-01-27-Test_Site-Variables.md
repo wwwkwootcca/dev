@@ -11,28 +11,28 @@ site:
 <br>.title = '```{{site.title}}```'
 <br>.description = '```{{site.description}}```'
 
-site.github = '```{{site.github|inspect}}```'
+site.github = '```{{site.github|jsonify}}```'
 
-post = '```{{post|inspect}}```'
+post = '```{{post|jsonify}}```'
 
-page = '```{{page|inspect}}```'
+page = '```{{page|jsonify}}```'
 
-layout = '```{{layout|inspect}}```'
+layout = '```{{layout|jsonify}}```'
 
-post = '```{{post|inspect}}```'
+post = '```{{post|jsonify}}```'
 
-paginator = '```{{paginator|inspect}}```'
+paginator = '```{{paginator|jsonify}}```'
 
-site.categories = '```{{site.categorie|inspect}}```'
+site.categories = '```{{site.categorie|jsonify}}```'
 
-site.collections = '```{{site.collections|inspect}}```'
+site.collections = '```{{site.collections|jsonify}}```'
 
-site.data = '```{{site.data|inspect}}```'
+site.data = '```{{site.data|jsonify}}```'
 
-site.documents = '```{{site.documents|inspect}}```'
+site.documents = '```{{site.documents|jsonify}}```'
 
-site.html_pages = '```{{site.html_pages|inspect}}```'
+site.html_pages = '```{{site.html_pages|jsonify}}```'
 
-site.static_files = '```{{site.static_files|inspect}}```'
+site.static_files = '```{{site.static_files|jsonify}}```'
 
-site.tags = '```{{site.tags}}|inspect```'
+site.tags = '```{{site.tags}}|jsonify```'
