@@ -35,4 +35,4 @@ site.html_pages = '```{{site.html_pages|jsonify}}```'
 
 site.static_files = '```{{site.static_files|jsonify}}```'
 
-site.tags = '```{{site.tags}}|jsonify```'
+site.tags = '```{{site.tags|jsonify}}```'
