@@ -1,0 +1,12 @@
+---
+# Needs url in _config.yml (for site.url) - NO TRAILING /!
+# Permits 'noindex: true' in front matter. And 'updated: YYYY-MM-DD', for that matter.
+---
+User-agent: *
+{% for node in site.pages %}{% if node.noindex %}{% assign isset = true %}Disallow: {{ node.url }}
+{% endif %}{% endfor %}{% if isset != true %}Disallow:
+{% endif %}
+Disallow: /Test*/*
+Disallow: /test*/*
+Disallow: /assets*/*
+Sitemap: {{ site.url }}/sitemap.xml

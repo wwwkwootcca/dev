@@ -1,0 +1,66 @@
+---
+layout: mydefault
+#layout: search
+title: Search Results
+metatags: noindex, nofollow, nosnippet, noodp, noarchive, noimageindex, unavailable_after:1980-01-01
+
+#<form action="/search.html" method="get">
+#  <label for="search-box">Search</label>
+#  <input type="text" id="search-box" name="query">
+#  <input type="submit" value="search">
+#</form>
+
+#{%capture stuff%}{%include parseprintvar.md varname=page.url var=page %}{%endcapture%}{{stuff|markdownify}}
+---
+
+<hr>
+&nbsp;
+
+<form action="/search.html" method="get">
+  <input type="text" id="search-bar" name="query" size=140 placeholder="Search..." value="" autofocus>
+  <input type="submit" value="Search">
+</form>
+
+&nbsp;
+<hr>
+&nbsp;
+
+
+<ul id="search-results"></ul>
+
+
+<script>
+	window.store =
+	{
+		{% for page in site.html_pages %}
+			{% assign first5w=page.url|slice:0,5%}
+			{% assign first6w=page.url|slice:0,6%}
+			{% assign first7w=page.url|slice:0,7%}
+			{%if page.redirect or page.mypageclass=="listing" or first7w=="/search" or first6w=="/Test/" or first5w=="/404."%}{%continue%}{%endif%}
+			"{{ page.url | slugify }}":
+			{
+				     "title": "{{ page.title    | xml_escape }}"
+				,   "author": "{{ page.author   | xml_escape }}"
+				, "category": "{{ page.category | xml_escape }}"
+				,  "content":  {{ page.content  | strip_html |  strip_newlines | jsonify }}
+				,      "url": "{{ page.url      | xml_escape }}"
+			},
+		{% endfor %}
+
+		{% for post in site.posts %}
+			"{{ post.url | slugify }}":
+			{
+					"title":  "{{ post.title    | xml_escape }}"
+				,   "author": "{{ post.author   | xml_escape }}"
+				, "category": "{{ post.category | xml_escape }}"
+				,  "content":  {{ post.content  | strip_html |  strip_newlines | jsonify }}
+				,      "url": "{{ post.url      | xml_escape }}"
+			}
+			{% unless forloop.last %},{% endunless %}
+		{% endfor %}
+
+	};
+</script>
+
+<script src="{{'/assets/js/lunr.min.js'|relative_url}}"></script>
+<script src="{{'/assets/js/search.min.js'|relative_url}}"  ></script>

@@ -1,0 +1,279 @@
+// http://www.w3schools.com/cssref/css_colors.asp
+
+// /**
+//  *********************************************
+//  * Prototype of styles for horizontal CSS-menu
+//  * @data 30.06.2009
+//  *********************************************
+//  *	(X)HTML-scheme:
+//  *	<div id="menu">
+//  *		<ul class="menu">
+//  *			<li><a href="#" class="parent"><span>level 1</span></a>
+//  *				<ul>
+//  *					<li><a href="#" class="parent"><span>level 2</span></a>
+//  *						<ul><li><a href="#"><span>level 3</span></a></li></ul>
+//  *					</li>
+//  *				</ul>
+//  *			</li>
+//  *			<li class="last"><a href="#"><span>level 1</span></a></li>
+//  *		</ul>
+//  *	</div>
+//  *********************************************
+//  */
+
+/* menu::base */
+div#menu
+{
+	height: 41px;
+	background: url(#{$mymenuimagesdir}/main-bg.png) repeat-x;
+}
+
+
+div#menu ul
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+
+div#menu ul.menu
+{
+	padding-left: 30px;
+}
+
+
+div#menu li
+{
+	position: relative;
+	z-index: 9;
+	margin: 0;
+	padding: 0 5px 0 0;
+	display: block;
+	float: left;
+}
+
+// May never get here. li's, not ul's, have something to color.
+div#menu li:hover > ul
+{
+	left: -2px;
+	color: SpringGreen;	// Some day we'll see this, and be able to adjust this.
+}
+
+div#menu a
+{
+	position: relative;
+	z-index: 10;
+	height: 41px;
+	display: block;
+	float: left;
+	line-height: 41px;
+	text-decoration: none;
+//	font: normal 12px Trebuchet MS;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+// Hovering over a top menu item, change the fore/back colours to indicate active.
+div#menu a:hover, div#menu a:hover span
+{
+//	color: #fff;
+//	color:	bisque;
+	color:	White;
+	background: DarkGrey;	// This is the cause of the transparency problem.
+							// Which stops being a problem with no-repeat, on
+							// div#menu ul ul a.parent:hover span.
+}
+
+div#menu li.current a
+{}
+
+div#menu span
+{
+	display: block;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: 95% 0;
+}
+
+div#menu ul ul a.parent span
+{
+	background-position: 95% 8px; // xpos ypos
+//	background-image: url(#{$mymenuimagesdir}/item-pointer.gif);
+	background-image: url(#{$mymenuimagesdir}/item-pointer-silver.png);
+//	color: blue;	// added from orig.
+}
+
+// Hovering over any submenu item that is a parent. (Has submenus.)
+// i.e. vs 'div#menu ul ul a.parent span' above, where you're hovering over
+//      the item -above- this item.
+div#menu ul ul a.parent:hover span
+{
+//	background-position: 95% 8px; <- already auto-inherited from above.
+	background-repeat: no-repeat;
+//	background-image: url(#{$mymenuimagesdir}/item-pointer-mover.gif);
+	background-image: url(#{$mymenuimagesdir}/item-pointer-mover-white.png);
+//	color: purple;
+}
+
+/* menu::level1 */
+// (unhovered)
+div#menu a
+{
+	padding: 0 10px 0 10px;
+	line-height: 30px;
+//	color: #e5e5e5;
+//	color:	Lime;
+	color:	Silver;
+}
+
+div#menu span
+{
+	margin-top: 5px;
+}/**@replace#1*/
+
+div#menu li
+{
+	background: url(#{$mymenuimagesdir}/main-delimiter.png) 98% 4px no-repeat;
+}
+
+div#menu li.last
+{
+	background: none;
+}
+
+
+/* menu::level2 */
+div#menu ul ul li
+{
+	background: none;
+}
+
+div#menu ul ul
+{
+	position: absolute;
+	top: 38px;
+	left: -999em;
+//	width: 163px;
+	width: $MenuWidth;
+//	padding: 5px 0 0 0;
+//    background: rgb(45,45,45);
+//	margin-top: 1px;
+//	background: DarkOrange;
+	background: DimGrey;
+	margin-top: 3px;
+	margin-left: 2px; // added to orig.
+}
+
+// Should never get here, li's have a's, not ul's. (?)
+// - HAH! If nothing else specified, e.g. div#menu ul ul span,
+//   this comes into play.
+div#menu ul ul a
+{
+	padding: 0 0 0 15px;
+	height: auto;
+	float: none;
+	display: block;
+	line-height: 24px;
+//	color: rgb(169, 169, 169);
+//	color:	olive;
+//	background: dimgrey; // added to orig.
+}
+
+// Colour of NON-parent submenu items. (Submenu elements that are parents.)
+// i.e. Hover over a menu item that has a submenu, colour those submenu
+//      elements that are NOT parents.
+
+div#menu ul ul span
+{
+	margin-top: 0;
+	padding-right: 15px;
+	_padding-right: 20px;
+//	color: rgb(169, 169, 169);
+//	color:	SkyBlue;
+}
+
+// Colour of NON-parent submenu items, upon hovering.
+div#menu ul ul a:hover span
+{
+//	color: #fff;
+	color:	white;
+//	color:	Fuchsia;
+}
+
+div#menu ul ul li.last
+{
+	background: none;
+}
+
+div#menu ul ul li
+{
+	width: 100%;
+}
+
+
+/* menu::level3 */
+div#menu ul ul ul
+{
+	padding: 0;
+//	margin: -38px 0 0 163px !important;
+	margin: -38px 0 0 $MenuWidth+2 !important;
+//	margin-left: 172px;
+}
+
+
+/* colors */
+// div#menu ul ul			{	background: rgb(45, 45, 45);	}
+// div#menu ul ul ul		{	background: rgb(41, 41, 41);	}
+// div#menu ul ul ul ul	{	background: rgb(38, 38, 38);	}
+// div#menu ul ul ul ul	{	background: rgb(35, 35, 35);	}
+
+
+/* lava lamp */
+div#menu li.back
+{
+	background: url(#{$mymenuimagesdir}/lava.png) no-repeat right -44px !important;
+	background-image: url(#{$mymenuimagesdir}/lava.gif);
+	width: 13px;
+	height: 44px;
+	z-index: 8;
+	position: absolute;
+	margin: -1px 0 0 -5px;
+}
+div#menu li.back .left
+{
+	background: url(#{$mymenuimagesdir}/lava.png) no-repeat top left !important;
+	background-image: url(#{$mymenuimagesdir}/lava.gif);
+	height: 44px;
+	margin-right: 8px;
+}
+
+div#menu * :focus
+{
+	color: Orange;
+}
+
+div#menu *:focus
+{
+	color: Green;
+}
+
+div#menu a:focus
+{
+	color: Red;
+}
+
+div#menu * :active
+{
+	color: Blue;
+}
+
+div#menu *:active
+{
+	color: Yellow;
+}
+
+div#menu a:active
+{
+	color: Purple;
+}

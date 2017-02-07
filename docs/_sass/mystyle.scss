@@ -1,0 +1,171 @@
+// # /*
+// # ---
+// # mymenu: apycom.com-1-black
+// #
+// # mymenu_cssfile: menu_apycom.com-1-black.orig.css
+// # mymenu_cssimagedir: "/assets/images/images.apycom.com-1-black"
+// #
+// # # @import "{{ site.theme }}";
+// # ---
+// # */
+// # /*
+// # {%comment%} {%include {{page.mymenu_cssfile}}%} {%endcomment%}
+// # */
+// # /* This:
+// # {%comment%} This is a comment. {%endcomment%}
+// # - causes Jekyll::Converters::Scss to barf - so, no liquid processing in .scss.
+// # */
+// # /* This:
+// # {::comment} This is a cramdown comment. {:/comment}
+// # - isn't any better, of course, being a markdown (kramdown) construct.
+// # */
+// #
+// # Even better ... /* */ comments appear in output. // comments don't!
+
+$MenuWidth:		359px;
+
+$SubText-Color:	Grey;
+
+.SubText
+{
+	color: $SubText-Color;
+}
+
+@import "minima.orig_sass/main.scss";
+
+$mymenuimagesdir: "/assets/images/images.apycom.com-1-black";
+@import "mymenu_apycom.com-1-black.scss";
+
+img					{max-width: 100%;}
+
+a.ablknodec:link	{	color:Black; text-decoration:none;								}
+a.ablknodec:visited	{	color:Black; text-decoration:none;								}
+
+.center-talign		{	text-align:		center;											}
+.right-talign		{	text-align: 	right;											}
+
+.inline				{	display:		inline;											}
+.inline-block		{	display:		inline-block;									}
+
+.vbottom			{	vertical-align:	bottom;											}
+.vtop				{	vertical-align:	top;											}
+
+.dashed-border		{	border-color: Black; border-width: 1px; border-style: dashed;	}
+.dotted-border		{	border-color: Black; border-width: 1px; border-style: dotted;	}
+.solid-border		{	border-color: Black; border-width: 1px; border-style: solid;	}
+
+.underline			{	text-decoration:	underline;									}
+
+form				{	background:		none;											}
+
+pre					{	display: inline; margin: 0; border: 0; padding: 0				}
+
+#mytrsearch
+{
+}
+
+
+.site-title
+{
+	font-weight:	bold;
+	font-size:		32px;
+	line-height:	initial;
+}
+.site-last_update-text
+{
+	color:			$SubText_Color;
+	font-style:		italic;
+	font-size:		14px;
+	line-height:	20px;
+	display:		block;
+}
+
+#bannertable,
+#bannertable *
+{
+	margin:		0;
+	border:		0;
+	padding:	0;
+}
+
+// /* My page layout / css overrides. */
+
+h1
+{
+	font-weight:	bold;
+}
+
+body#mydefaultbody
+{
+	margin: 40px auto;
+}
+
+
+// /* visibility: hidden; */
+
+// a[target='_blank']::after {font-family:"Material Icons";content: "open_in_new";} // == content: '\e89e'
+// http://www.w3schools.com/icons/icons_reference.asp
+// https://google.github.io/material-design-icons/
+// Not needed any more - done inline via <i></i>
+
+.footer-link
+{
+	text-decoration:	none;
+	color:				Grey;
+	font-weight:		bold;
+}
+body footer a:visited
+{
+	color:				inherit;
+}
+
+.page-content
+{
+  padding:			0;
+  padding-top:		30px;
+  padding-bottom:	15px;
+}
+
+.wrapper
+{
+	max-width: 100%;
+	padding:	0;
+}
+
+.post-meta
+{
+  font-size: inherit;
+  color: $SubText-Color;
+}
+
+.post-title
+{
+	font-size:		36px;
+	margin-bottom:	0;
+}
+
+.news-article-review
+{
+//	color:	Purple;
+
+	p
+	{
+		padding:	0 20px;
+	}
+
+	.src
+	{
+		text-decoration:	underline;
+	}
+
+	a[target='_blank']::after
+	{
+		font-family:	"Material Icons";
+		font-size:		70%;
+		content:		"open_in_new";
+		vertical-align:	top;
+		padding-left:	4px;
+//		transform: scale(0.6,0.6);
+	} // == content: '\e89e'
+
+}

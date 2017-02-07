@@ -1,0 +1,42 @@
+---
+layout: mydefault
+# Copied from theme-original for local customization.
+# - layoug changed to mydefault
+# - www.kwootc.ca doesn't have a 'blog', it has a 'diary'.
+---
+<br>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+	<header class="post-header">
+
+		<h1 class="post-title" itemprop="name headline"><a href="{{page.url}}" title="{{ page.title | escape }}" class="ablknodec">{{ page.title | escape }}</a></h1>
+
+		{%comment%}<p class="meta"><b>{{ page.date | date: '%B %-d, %Y' }}:</b></p>{%endcomment%}
+
+		<span class="post-meta">
+
+			<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+				{{ page.date | date: "%B %-d, %Y" }}
+			</time>
+
+			{% if page.author %}
+				• <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+					<span itemprop="name">
+						{{ page.author }}
+					</span>
+				</span>
+			{% endif %}
+		</span>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if site.disqus.shortname %}
+    {% include disqus_comments.html %}
+  {% endif %}
+</article>
+
+<a href="{{"/Diary/feed-Diary.xml"|relative_url}}" title="Diary Feed" style="float:right;line-height:0;"><img src="/assets/images/feed.png" alt="Diary Feed"></a>
+

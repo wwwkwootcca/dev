@@ -1,0 +1,24 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>KWOOTC Diary</title>
+	<updated>{{site.time|date_to_xmlschema}}</updated>
+    <description>Jots from Kitchener-Waterloo Out Of The Cold</description>
+    <link>{{ site.url }}/Diary/</link>
+    {% for post in site.posts %}
+      {% unless post.draft %}
+        <item>
+          <title>{{ post.title | xml_escape }}</title>
+          <link>{{ post.url | prepend: site.url }}</link>
+          <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
+          <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+          <description>{{ post.content | xml_escape }}</description>
+          <tags>{{ post.tags | array_to_sentence_string | xml_escape }}</tags>
+        </item>
+      {% endunless %}
+    {% endfor %}
+  </channel>
+</rss>

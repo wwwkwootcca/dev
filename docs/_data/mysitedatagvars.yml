@@ -1,0 +1,4 @@
+# Site Global Data Variables (== macros)
+# Ref via {{site.data.<filename>.str_mysitedatagvar1}}?
+# e.g. {{site.data.mydatavars.str_mysitevar1}}
+str_mysitedatagvar1: "This is the mysitedatagvar1 var from _data/mysitedatagvars"

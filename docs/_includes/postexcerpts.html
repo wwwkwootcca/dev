@@ -1,0 +1,24 @@
+<!-- See http://jekyllrb.com/docs/templates for include parameters -->
+<!-- Can relative include via {{% include_relative somedir/scrap.html %} -->
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      {{ post.excerpt }}
+      <!-- {{ post.excerpt | remove: '<p>' | remove: '</p>' }} -->
+    </li>
+  {% endfor %}
+</ul>
+
+<!-- {fix below - nested comments not allowd?}
+===
+stuff
+=== - stuff becomes excerpt (== first paragraph)
+---
+excerpt_separator: <!--more-->
+---
+Excerpt
+<!--more-->
+Out-of-excerpt
+=== 'excerpt_separator: ""' - disables excerpts
+-->

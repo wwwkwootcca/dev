@@ -1,0 +1,214 @@
+---
+#
+# wwwkwootcca/dev - default.html Layout
+#
+layout: compress_html.min
+#
+# This is a comment.
+# str_mypagevar3:	"This is my str_mypagevar3."
+---
+{%comment%}<!--
+	'SITE' Variables:
+
+	This does not work:
+		{% include myincvars.yml %}
+			{% raw %}{{ str_mysitevar2 }}{% endraw %} = '<code>{{ str_mysitevar2 }}</code>'
+
+	This does work, but awkward naming (referencing):
+		{% raw %}{{ str_mysitevar1 }}{% endraw %} = '<code>{{ site.data.mydatavars.str_mysitevar1 }}</code>'
+
+	This also works, but every file has to do the include, and has to understand liquid:
+		{% include myliquidvars.liquid %}
+			{% raw %}{{ str_myliquidvar1 }}{% endraw %} = '<code>{{ str_myliquidvar1 }}'</code>
+
+	This would also work, but awkward naming, and the file has to have Front Matter (for jekyll to know to process it):
+		{% raw %}{{ str_mypagevar3 }}{% endraw %} = '<code>{{ page.mypagevar3 }}</code>'
+-->{%endcomment%}
+
+
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	{% if page.metatags %} <meta name="robots" content="{{page.metatags}}">{% endif %}
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link  rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+	<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+	<link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+
+	<link rel="icon" type="image/png" href="/favicon.ico">
+
+
+	{%assign arJEKYLL_ENV=jekyll.environment|split:' '%}
+
+	{%if 		arJEKYLL_ENV contains "development"%}
+		<meta name="robots" content="noindex">
+	{%elsif 	arJEKYLL_ENV contains "production" %}
+		{% if site.google_analytics %}
+			<!-- { % include google-analytics.html % }	-->
+			<script>
+				(function (i, s, o, g, r, a, m)
+				{
+					i['GoogleAnalyticsObject'] = r;
+
+					i[r] = i[r] || function ()
+					{
+						(i[r].q = i[r].q || []).push(arguments)
+					}
+					, i[r].l = 1 * new Date();
+
+					a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+					a.async = 1;
+					a.src = g;
+					m.parentNode.insertBefore(a, m)
+				})
+				(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+				ga('create', '{{ site.google_analytics }}', 'auto');
+				ga('send', 'pageview');
+			</script>
+		{%endif site.google_analytics%}
+	{%endif arJEKYLL_ENV contains %}
+
+
+<!-- []
+	<script src="{{'/assets/js/jquery.js'|relative_url}}"></script>
+	<script src="{{'/assets/js/apycom.com-1-black.menu.js'|relative_url}}"></script>
+
+	/*	From: http://gmarwaha.com/blog/?p=7			See: /assets/js/apycom.com-1-black.menu...js for version(s)	*/
+	<script src="https://searchcode.com/file/104615659/wp-content/themes/news/includes/js/jquery.lavalamp.js"></script>
+	<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js"></script>
+	<script src="http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.compatibility.js"></script>
+[] -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.js"></script>
+	<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+	<script src="{{'/assets/js/apycom.com-1-black.menu.min.js'|relative_url}}"></script>
+<!-- []
+	<script type="text/javascript">$(document).ready(function(){$("body div:last").remove();}); {%comment%}Remove apycom 'no back link' nag.{%endcomment%}
+[] -->
+
+
+<!--[]
+	TITLE: Do something about this when not local / on github, and / (home) page. Prefer: site.description
+[]-->
+	<title>{{ site.title | default: site.github.repository_name }} : {{ page.title}}</title>
+
+
+	<meta name="description" content="{{ site.title | default: site.github.repository_name }} : {{ site.description | default: site.github.project_tagline }}">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/mymain.css?v=' | append: site.github.build_revision | relative_url }}">
+
+
+<!-- { % feed_meta % } -->
+	{% feed_meta %}
+<!-- { % end feed_meta % } -->
+<!-- { % seo %} -->
+	{% seo %}
+<!-- { % end seo % } -->
+</head>
+
+
+<!-- <body style="font-family:Georgia,'Bitstream Charter',serif;color:DimGrey;"> -->
+
+<body id="mydefaultbody" style="width:940px;font-family:'Helvetica Neue',Arial,Helvetica,'Nimbus Sans L',sans-serif;font-size:16px;">
+
+<!-- 	<div style="visibility: hidden"><br/><a href="http://apycom.com/">Apycom jQuery Menus</a><br/></div>	-->
+<!-- 	<div id="copyright">Copyright &copy; 2010 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>	-->
+
+<!-- HEADER -->
+	<header id="top" class="inner" data-proofer-ignore>
+
+		<!-- table, because I can't be bothered to continue to eff with alignment any more. -->
+		<table id="bannertable" style="-webkit-border-vertical-spacing: 0;">
+			<tr>
+				<td align="left" class="vbottom">
+					<h1 class="site-title"><a href="/" title="{{ site.description | default: site.github.project_tagline }}" rel="" class="ablknodec">{{ site.description | default: site.github.project_tagline }}</a></h1>
+				</td>
+				<td align="right">
+					<form  id="mytrsearch" action="/search.html" method="get" >
+						<input type="text" id="search-box" name="query"  placeholder="Search..." size=25 style="border:1px solid black">
+						<input type="submit" value="Search"  style="border:1px solid black">
+					</form>
+					<p class="site-last_update-text right-talign" style="margin-top:10px;">Last Update: {{site.time | date: '%B %-d, %Y'}}</p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<a href="/" title="{{ site.description | default: site.github.project_tagline }}" rel="home" class="ablknodec">
+						<img src="/assets/images/header940x198.png" style="margin-top:10px;border-style:solid;border-width:3px 1px;border-color:Black;box-shadow:none;webkit-box-shadow:none;width:940px;height;198px" alt=&nbsp; />
+					</a>
+				</td>
+			</tr>
+		</table>
+
+		<div id="menu" style="margin:0px 0px 2px 2px;">
+			{%comment%}
+				{%capture mymenu_to_markdownify%}{%include mymenu.md%}{%endcapture%}{{mymenu_to_markdownify | markdownify}}
+			{%endcomment%}
+
+			{%include mymenu.html%}
+		</div id="menu">
+
+	</header data-proofer-ignore>
+<!-- /HEADER -->
+
+<!-- MAIN CONTENT -->
+	<main class="page-content" aria-label="Content" data-proofer-ignore="true">
+		<div class="wrapper">
+			{{ content }}
+		</div>
+	</main data-proofer-ignore>
+<!-- /MAIN CONTENT -->
+
+<!-- FOOTER  -->
+	<footer data-proofer-ignore>
+		<table width=940 style="border-top:4px solid black;"><tr>
+			<td align=left>
+				<a href="/" title="{{ site.description | default: site.github.project_tagline }}" rel="home" class="ablknodec" style="color:Black;font-weight:bold;font-size:16px;line-height:20px;text-decoration:none;">{{ site.description | default: site.github.project_tagline }}</a>
+			</td>
+			<td align="right"  class="vbottom">
+				<p class="copyright SubText" style="font-size:80%;margin:0">
+					<em>
+						Absent subcontent notation, all content &copy; <img src="/assets/images/copyrightemailaddress.png" style="margin:0;padding:0;border:0;box-shadow:none;webkit-box-shadow:none;opacity:1.0;" alt=alt=&nbsp;> All Rights Reserved, used by permission.
+						<br>With many thanks to the many <a href="{{ "/Website_Contributors" | relative_url }}" title="Website Contributors" class="footer-link">Website Contributors</a>
+						<br>Powered by <a href="http://jekyllrb.com/" class="footer-link">Jekyll</a> and <a href="https://pages.github.com/" class="footer-link">GitHub Pages</a>.
+						</em>
+						<!-- <a href="{{ "/feed.xml" | relative_url }}" title="Feed" style="float:right;"><img src="/assets/images/feed.png" alt="Feed"></a> -->
+				</p>
+			</td>
+			<td align="right" class="vtop"><a href="{{ "/feed.xml" | relative_url }}" title="Feed" style="float:right;line-height:0;"><img src="/assets/images/feed.png" alt="Feed"></a></td>
+		</tr></table>
+	</footer>
+<!-- /FOOTER  -->
+<!-- Delete me when ready to deploy -->
+	<footer data-proofer-ignore>
+		<table width=940 style="border-top:4px solid black;"><tr>
+			<td align=left>
+				<div id=reminderdiv style="color:red;background-color:Yellow;">
+					Site in '<pre style="inline;">{{arJEKYLL_ENV|escape}}</pre>' mode. Don't forget to update _config-base.yml with:
+						<br>- baseurl:
+						<br>- drafts / future / unpublished
+						<br>- minify js? - call min/non per jekyll.environment
+						<br>- active page / link showing up yellow?
+						<br>- Google Analytics script not/present
+						<br>- buildprod script
+						<br>- pushit script
+				</div>
+			</td>
+		</tr></table>
+	</footer data-proofer-ignore>
+<!-- Delete to and including -->
+
+
+{%comment%}
+{%capture morestuff%}{%include knownjekyllvars.md%}{%endcapture%}{{morestuff|markdownify}}
+
+{%include dumpvars.md%}
+{%endcomment%}
+
+</body>
+</html>

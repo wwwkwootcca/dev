@@ -1,0 +1,15 @@
+
+
+
+# _config-dev.yml:
+
+# Overrides for _config.yml when developing locally.
+
+jekyll_tidy: { compress_html: false }
+
+# jekyll gets all unhappy with 'sass: { style: nested }'
+# Liquid Exception: undefined method `to_liquid' for :nested:Symbol in 
+# - to do with the word 'nested'.
+sass:
+  style: nested
+
