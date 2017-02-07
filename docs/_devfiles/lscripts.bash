@@ -117,7 +117,7 @@ function buildprod()
 		pause
 	} fi
 
-	echo -e "\nSUCCESS: cd\'ed to build directory root - _config.yml file found.\n"
+	echo -e "\nSUCCESS: cd'ed to build directory root - _config.yml file found.\n"
 
 	cat _config-base.yml _config-prod.yml > _config.yml
 
@@ -143,7 +143,7 @@ function buildit()
 		pause
 	} fi
 
-	echo -e "\nSUCCESS: cd\'ed to build directory root - _config.yml file found.\n"
+	echo -e "\nSUCCESS: cd'ed to build directory root - _config.yml file found.\n"
 
 	cat _config-base.yml _config-dev.yml > _config.yml
 
@@ -169,7 +169,7 @@ function serveit()
 		pause
 	} fi
 
-	echo -e "\nSUCCESS: cd\'ed to build directory root - _config.yml file found.\n"
+	echo -e "\nSUCCESS: cd'ed to build directory root - _config.yml file found.\n"
 
 	cat _config-base.yml _config-dev.yml > _config.yml
 
@@ -279,7 +279,7 @@ function healthcheckit()
 		pause
 	} fi
 
-	echo -e "\nSUCCESS: cd\'ed to build directory root - _config.yml file found.\n"
+	echo -e "\nSUCCESS: cd'ed to build directory root - _config.yml file found.\n"
 
 	bundle exec github-pages health-check
 
@@ -290,6 +290,8 @@ function healthcheckit()
 
 function pushit()
 {
+	echo # pushd will cause dir (s) to be echoed.
+
 	if ! pushd ${ourdir} ; then
 	{
 		echo -e "ERROR! Unable to pushd into our _config.yml directory."
@@ -302,12 +304,21 @@ function pushit()
 		pause
 	} fi
 
-	echo -e "\nSUCCESS: cd\'ed to build directory root - _config.yml file found.\n"
+	echo -e "\nSUCCESS: cd'ed to build directory root - _config.yml file found.\n"
 
 	cat _config-base.yml > _config.yml
 
 	set -x ; echo -e "\n*** Scripting for this command yet to be written. Get on it. ***\n" ; set +x
 
+		echo
+		echo -e "\nYou will want to 'git status'."
+		echo -e "\nWhen ready, 'git commit'.\n(git commit -m \"Commit message.\""
+		echo -e "\n'git log' ..."
+		echo -e "\n'git push -u origin' ..."
+		echo -e "\nIf you are working from a branch, go to PR on github. Merge.\n(Don't forget to confirm the merge.)"
+		echo -e "\n'git checkout master'. 'git pull'."
+
+	echo
 	popd > /dev/null
 
 } # function pushit()
