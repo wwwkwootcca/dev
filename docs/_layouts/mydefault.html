@@ -47,6 +47,15 @@ layout: compress_html.min
 	{%assign arJEKYLL_ENV=jekyll.environment|split:' '%}
 
 <!--[] arJEKYLL_ENV = {{arJEKYLL_ENV}}
+	{%if 		arJEKYLL_ENV contains "development"%}
+		<meta name="robots" content="noindex, nofollow">
+	{%elsif 	arJEKYLL_ENV contains "production" %}
+		arJEKYLL_ENV contains "production"
+		{% if site.google_analytics %}
+			{ % include google-analytics.html % }
+			<script></script>
+		{%endif site.google_analytics%}
+	{%endif arJEKYLL_ENV contains %}
 []-->
 
 	{%if 		arJEKYLL_ENV contains "development"%}
@@ -189,6 +198,9 @@ layout: compress_html.min
 	</footer>
 <!-- /FOOTER  -->
 <!-- Delete me when ready to deploy -->
+{%if 		arJEKYLL_ENV contains "production"%}
+	<!--[]	Site in production mode. []-->
+{%else%}
 	<footer data-proofer-ignore>
 		<table width=940 style="border-top:4px solid black;"><tr>
 			<td align=left>
@@ -207,6 +219,7 @@ layout: compress_html.min
 			</td>
 		</tr></table>
 	</footer data-proofer-ignore>
+{%endif%}
 <!-- Delete to and including -->
 
 
