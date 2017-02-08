@@ -1,8 +1,10 @@
 
 
-
 # _config-prod.yml:
 
 # Overrides for _config.yml when pushing site to production, e.g. via ftp.
 # - e.g. perhaps changin the base url to /Jekyll, or something.
-# Confirmed: github runs with 'JEKYLL_ENV=production'
+# Confirmed: github runs with 'JEKYLL_ENV=production', baseurl: "/dev".
+
+
+baseurl: ""

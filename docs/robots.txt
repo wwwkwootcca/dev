@@ -1,12 +1,28 @@
 ---
-# Needs url in _config.yml (for site.url) - NO TRAILING /!
+layout: null
+
 # Permits 'noindex: true' in front matter. And 'updated: YYYY-MM-DD', for that matter.
+# Leverages 'sitemap: false', too.
 ---
+
 User-agent: *
-{% for node in site.pages %}{% if node.noindex %}{% assign isset = true %}Disallow: {{ node.url }}
-{% endif %}{% endfor %}{% if isset != true %}Disallow:
-{% endif %}
-Disallow: /Test*/*
-Disallow: /test*/*
-Disallow: /assets*/*
-Sitemap: {{ site.url }}/sitemap.xml
+
+{%assign arJEKYLL_ENV=jekyll.environment|split:' '%}{%if arJEKYLL_ENV contains "production"%}{%else%}Disallow: /{%endif%}
+
+
+{% assign urllist = "" | split:"," %}
+{% assign mypages = site.pages     | where: 'sitemap', false %}{% for mypage in mypages %}{% assign urllist = urllist | push:mypage.url %}{%endfor%}
+{% assign mypages = site.documents | where: 'sitemap', false %}{% for mypage in mypages %}{% assign urllist = urllist | push:mypage.url %}{%endfor%}
+{% assign mypages = site.pages     | where: 'noindex', true  %}{% for mypage in mypages %}{% assign urllist = urllist | push:mypage.url %}{%endfor%}
+{% assign mypages = site.documents | where: 'noindex', true  %}{% for mypage in mypages %}{% assign urllist = urllist | push:mypage.url %}{%endfor%}
+
+{% assign urllist = urllist | sort | uniq %}
+
+{%for item in urllist %}
+Disallow: {{item|relative_url}}{%endfor%}
+
+
+Disallow: {{site.baseurl}}/Test*/*
+Disallow: {{site.baseurl}}/test*/*
+Disallow: {{site.baseurl}}/assets*/*
+Sitemap: {{site.baseurl}}/sitemap.xml

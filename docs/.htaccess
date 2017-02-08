@@ -1,2 +1,5 @@
+---
+layout: null
+---
 IndexIgnore *
-ErrorDocument 404 /404.html
+ErrorDocument 404 {{"/404.html"|relative_url}}

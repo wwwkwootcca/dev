@@ -9,7 +9,7 @@ layout: mydefault
 
 	<header class="post-header">
 
-		<h1 class="post-title" itemprop="name headline"><a href="{{page.url}}" title="{{ page.title | escape }}" class="ablknodec">{{ page.title | escape }}</a></h1>
+		<h1 class="post-title" itemprop="name headline"><a href="{{page.url|relative_url}}" title="{{ page.title | escape }}" class="ablknodec">{{ page.title | escape }}</a></h1>
 
 		{%comment%}<p class="meta"><b>{{ page.date | date: '%B %-d, %Y' }}:</b></p>{%endcomment%}
 
@@ -38,5 +38,5 @@ layout: mydefault
   {% endif %}
 </article>
 
-<a href="{{"/Diary/feed-Diary.xml"|relative_url}}" title="Diary Feed" style="float:right;line-height:0;"><img src="/assets/images/feed.png" alt="Diary Feed"></a>
+<a href="{{"/Diary/feed-Diary.xml"|relative_url}}" title="Diary Feed" style="float:right;line-height:0;"><img src={{"/assets/images/feed.png" | relative_url }} alt="Diary Feed"></a>
 

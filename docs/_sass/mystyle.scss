@@ -22,6 +22,9 @@
 // #
 // # Even better ... /* */ comments appear in output. // comments don't!
 
+
+$mymenuimagesdir: $baseurl+"/assets/images/images.apycom.com-1-black";
+
 $MenuWidth:		359px;
 
 $SubText-Color:	Grey;
@@ -33,7 +36,6 @@ $SubText-Color:	Grey;
 
 @import "minima.orig_sass/main.scss";
 
-$mymenuimagesdir: "/assets/images/images.apycom.com-1-black";
 @import "mymenu_apycom.com-1-black.scss";
 
 img					{max-width: 100%;}

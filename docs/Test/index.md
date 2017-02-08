@@ -138,7 +138,13 @@ site.repository: | ```{{site.repository|default:"<empty>"}}```
 ^
 |
 -:|
+site.url: | ```{{site.url|default:"<empty>"}}```
 site.baseurl: | ```{{site.baseurl|default:"<empty>"}}```
+site.github.url: | ```{{site.github.url|default:"<empty>"}}```
+page.url: | ```{{page.url|default:"<empty>"}}```
+relative- | ```{{page.url|relative_url|default:"<empty>"}}```
+absolute- | ```{{page.url|absolute_url|default:"<empty>"}}```
+page.path: | ```{{page.path|default:"<empty>"}}```
 site.encoding: | ```{{site.encoding|default:"<empty>"}}```
 site.lang: | ```{{site.lang|default:"<empty>"}}```
 site.theme: | ```{{site.theme}}```

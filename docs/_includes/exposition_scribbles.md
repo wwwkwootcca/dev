@@ -133,8 +133,8 @@ Since we don't see anything above, no math here.
 
 
 This is [a link](http://rubyforge.org) to a page.
-A [link](../Test "local URI") can also have a title.
-And [spaces](link with spaces.html)!
+A [link]({{"/Test" | relative_url }} "local URI") can also have a title.
+And [spaces]({{"/Test/link with spaces.html" | relative_url }})!
 
 This is a [link](http://example.com){:hreflang="de"}
 
@@ -228,7 +228,7 @@ Versus:
 Note that other includes ref-name. i.e. Inclusion (?)
 
 This *is*{:.underline} some `code`{:#id}{:.class}.
-A [link](index.html){:rel='something'} and some **tools**{:.tools}.
+A [link]({{"index.html" | relative_url }}){:rel='something'} and some **tools**{:.tools}.
 
 {:stylered: style="color:red;"}
 This should be **bold red**{:stylered}

@@ -1,6 +1,7 @@
 ---
 layout: mydefault
-title: www.kwootc.ca Development Website
+title: Kitchener-Waterloo Out Of The Cold
+#title: www.kwootc.ca Development Website
 #title: if [[ \"jekyll.environment\" == \"production\" ]] ; then \"site.description\" ; fi
 #title: {{ site.description }}
 #title: "if [[ \"jekyll.environment\" == \"production\" ]] ; then \"site.description\" ; fi"

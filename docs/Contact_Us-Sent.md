@@ -2,6 +2,8 @@
 layout: mydefault
 title: KWOOTC Contact Sent
 permalink: /Contact_Us-Sent
+noindex: true
+sitemap: false
 metatags: noindex, nofollow, nosnippet, noodp, noarchive, noimageindex, unavailable_after:1980-01-01
 ---
 ## {{page.title}}

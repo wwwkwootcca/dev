@@ -13,3 +13,4 @@ jekyll_tidy: { compress_html: false }
 sass:
   style: nested
 
+baseurl: /dev

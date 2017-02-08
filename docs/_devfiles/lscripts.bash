@@ -147,7 +147,7 @@ function buildit()
 
 	cat _config-base.yml _config-dev.yml > _config.yml
 
-	set -x ; DISABLE_WHITELIST=true bundle exec jekyll build --future -b '' --lsi --drafts --unpublished ${*} ; set +x
+	set -x ; DISABLE_WHITELIST=true bundle exec jekyll build --future --lsi --drafts --unpublished ${*} ; set +x
 
 	popd > /dev/null
 
@@ -173,7 +173,7 @@ function serveit()
 
 	cat _config-base.yml _config-dev.yml > _config.yml
 
-	set -x ; DISABLE_WHITELIST=true bundle exec jekyll serve -w -I  --skip-initial-build --future -b '' --lsi --drafts --unpublished ${*} ; set +x
+	set -x ; DISABLE_WHITELIST=true bundle exec jekyll serve -w -I  --skip-initial-build --future --lsi --drafts --unpublished ${*} ; set +x
 
 	popd > /dev/null
 
@@ -195,6 +195,9 @@ htmlprooferopts="      \
 # --log-level ( debug, info, warn, error, fatal )
 
 # e.g. checkfile index.html | filterhtmlignores - for _site/index.html.
+
+# Couldn't get --url-swap \'/dev/:/\' to quote correctly. Gave up.
+
 
 function filterignoredhtmlfiles()
 {
@@ -223,7 +226,10 @@ function filterignoredhtmlfiles()
 	while read -r; do
 	{
 	#	echo ":Got line: '"${REPLY}"'"
-		if [ "${REPLY}" != "- /data/dev.www.kwootc.ca/docs/_site/Test/testpage.html" ]; then
+		if [[
+				"${REPLY}" != "- /data/dev.www.kwootc.ca/docs/_site/Test/testpage.html"
+			&&	"${REPLY}" != "- /data/dev.www.kwootc.ca/docs/_site/Test/2017-01-27-Test_Site-Variables.html"
+		]]; then
 		{
 	#		echo ":Didn't find line: Echoing."
 			echo "${REPLY}"
@@ -261,6 +267,7 @@ function filterhtmlignores()
 
 function checkfile()
 {
+	ln -s /data/dev.www.kwootc.ca/docs/_site /data/dev.www.kwootc.ca/docs/_site/dev
 	set -x ; { ${htmlproofercmd} ${ourdir}/_site/${*} ${htmlprooferopts} 2>&1 ; }; set +x
 } # function  checkfile()
 

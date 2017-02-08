@@ -33,5 +33,5 @@ mypageclass: listing
 &nbsp;
 
 - - -
-[![Diary Feed](/assets/images/feed.png)]({{"/Diary/feed-Diary.xml"|relative_url}} "Diary Feed")
+[![Diary Feed]({{"/assets/images/feed.png"|relative_url}})]({{"/Diary/feed-Diary.xml"|absolute_url}} "Diary Feed")
 {: style="text-align:right"}

@@ -66,7 +66,10 @@ incremental:   true
 # port:    4000
 # host:    127.0.0.1
 # baseurl: "" # does not include hostname
-baseurl: ""
+#          Keep set to non-blank - blank will always work, not so, reversed.
+#          - keep reversed so issues are identified early.
+# baseurl: ""
+baseurl: "/dev" # when on github.
 # show_dir_listing: false
 show_dir_listing: false
 #
@@ -154,7 +157,8 @@ comments: true
 repository: wwwkwootcca/dev
 
 # GitHub Pages will overwrite - this keeps things working locally.
-github: {   url: "http://localhost:4000" }
+# - WHEN USING 'site.github.url'!
+github: {   url: "http://localhost:4000/dev" }
 
 compress_html:
   clippings:  all
@@ -257,3 +261,19 @@ jekyll_tidy: { compress_html: true }
 # If you change the sass style, stop the serve and rebuild it.
 sass: { style: compressed }
 # style: compressed
+
+
+
+# _config-dev.yml:
+
+# Overrides for _config.yml when developing locally.
+
+jekyll_tidy: { compress_html: false }
+
+# jekyll gets all unhappy with 'sass: { style: nested }'
+# Liquid Exception: undefined method `to_liquid' for :nested:Symbol in 
+# - to do with the word 'nested'.
+sass:
+  style: nested
+
+baseurl: /dev
