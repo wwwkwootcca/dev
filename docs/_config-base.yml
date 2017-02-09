@@ -2,8 +2,8 @@
 # Evidently ... DO NOT USE TABS in YAML!
 
 # Development: https://wwwkwootcca.github.io/dev/
-# Local:       http://localhost:4000
-# Production:  http://kwootc.ca (www.kwootc.ca?)
+# Local:       http://localhost:4000/dev/ (K.I.S.S.)
+# Production:  http://kwootc.ca/dev/ (www.kwootc.ca?)
 
 #JEKYLL_ENV: production
 # https://help.github.com/articles/basic-writing-and-formatting-syntax/
@@ -11,6 +11,7 @@
 # # Where things are
 # source:       .
 # destination:  ./_site
+destination:  ./_site/dev
 # plugins_dir:  _plugins
 # layouts_dir:  _layouts
 # data_dir:     _data
@@ -48,6 +49,9 @@ gems:
   - jekyll-github-metadata
   - jekyll-seo-tag
   - jekyll-tidy  # Changing compress_html in chained config files not working.
+                 # - it may seem jekyll-tidy is not working ('cause it's not
+                 #   compressing. If files are indented nicely, it's working.
+                 #   compress_html compresses, it doesn't tidy.
 #
 # # Conversion
 #markdown:    { kramdown: { input: "GFM" } }
@@ -69,7 +73,7 @@ incremental:   true
 #          Keep set to non-blank - blank will always work, not so, reversed.
 #          - keep reversed so issues are identified early.
 # baseurl: ""
-baseurl: "/dev" # when on github.
+baseurl: "/dev" # when on github. K.I.S.S., be /dev everywhere.
 # show_dir_listing: false
 show_dir_listing: false
 #
@@ -89,8 +93,11 @@ defaults:
       path: "" # an empty string here means all files in the project
 #     type:   "posts" - this would impact everything, e.g. css
     values:
+      url:    "http://localhost:4000" # doesn't work.
       layout: "mydefault"
       author: "KWOOTC"
+      
+url: "http://localhost:4000"
 #
 # liquid:
 #   error_mode: warn
@@ -164,9 +171,11 @@ compress_html:
   clippings:  all
 # comments:   all
   comments:   ["<!-- ", " -->"]
-  endings:    all
+  endings:    []
 #  ignore:     { envs: ["development"] }
+#    Squish the whitespace in all environments, now.
   blanklines: true
+  startings:    []
 # https://github.com/penibelst/jekyll-compress-html/releases/tag/v3.0.2
 ## Restrictions:
 #* Whitespaces inside of the `textarea` element are squeezed. Please don’t use the layout on pages with non-empty `textarea`.
@@ -188,8 +197,13 @@ compress_html:
 # startings: []             e.g.  [html, head, body]      - optional start tags, removed, e.g. <html>.
 # ---------
 
-jekyll_tidy: { compress_html: true }
-#  compress_html: true
+#jekyll_tidy: { compress_html: true }
+jekyll_tidy:
+  compress_html: true
+
+#jekyll_tidy: { exclude: [ "/Diary", "/Diary/index.html" ], compress_html: true }
+# - have never been able to get exclude: [ "whatever" ] to work.
+
 # gem_loaded:   false
 # exclude: sample.html
 #  exclude: [/Test/index.html]

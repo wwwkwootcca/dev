@@ -177,7 +177,8 @@ site.kramdown: | ```{{site.kramdown}}```
 -:|
 jekyll_tidy:|
 .exclude | '```{{site.jekyll_tidy.exclude|jsonify}}```'
-.compress_html | '```{{site.jekyll_tidy.compress_html}}```'
+.compress_html | '```{{site.jekyll_tidy.compress_html|jsonify}}```'
+(jekyll_tidy: | '```{{site.jekyll_tidy|jsonify}}```')
 ^
 |
 -:|
@@ -186,9 +187,12 @@ sass: ' ```{{site.sass}}``` '|
 |
 -:|
 compress_html:|
-.ignore.envs | '```{{site.compress_html.ignore.envs|default:""}}```'
+.ignore.envs | '```{{site.compress_html.ignore.envs|default:""|jsonify}}```'
 .comments | '```{{site.compress_html.comments|escape|jsonify}}```'
 ^
+|
+-:|
+feed_meta:|'```{% capture mymeta %}{% feed_meta %}{%endcapture%}{{mymeta|default:""|jsonify}}```'
 
 &nbsp;
 

@@ -5,12 +5,25 @@
 
 # Overrides for _config.yml when developing locally.
 
-jekyll_tidy: { compress_html: false }
+# NOTE: IF YOU SET A VALUE ... YOU *MUST* SET *ALL* VALUES!
+# - each subsequent setting overrides ALL of a prior setting.
+# e.g. myvar: { a true, b false } in _config-base.yml
+#      myvar: {a false } here
+#      LEAVES myvar.b UNSET!
+
+
+#baseurl: /dev # /dev now default.
+
+
+jekyll_tidy: { compress_html: false, exclude: [] }
+
 
 # jekyll gets all unhappy with 'sass: { style: nested }'
-# Liquid Exception: undefined method `to_liquid' for :nested:Symbol in 
+# Liquid Exception: undefined method `to_liquid' for :nested:Symbol in
 # - to do with the word 'nested'.
+# Latest: No issues.
+#sass: { style: nested }
 sass:
   style: nested
-
-baseurl: /dev
+# Setting sass.style here seems to have no effect, always using compress, as
+# specified in _config-base.yml.

@@ -3,3 +3,25 @@ layout: null
 ---
 IndexIgnore *
 ErrorDocument 404 {{"/404.html"|relative_url}}
+Options +MultiViews
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# pass through requests when the page exists
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.*)$ - [L]
+# pass anything ending in HTML - prevents infinite redirect if the following rules are buggy
+RewriteRule ^(.*).html$ - [L]
+# On trailing slash, open /index.html
+RewriteRule ^(.*)\/$ $1/index.html [L]
+# Rewrite / as /index.html
+RewriteRule / /index.html [L]
+# tack html onto anything else
+RewriteRule ^(.*)$ $1.html [L]
+</IfModule>

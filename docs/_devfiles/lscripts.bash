@@ -16,7 +16,7 @@
 #
 # updateit - 'bundle update'
 #
-# buildprod - jekyll build site deployment  version
+# prodit    - jekyll build site deployment  version ('PRODuction IT').
 # buildit   - jekyll build site development version
 # serveit   - jekyll serve site, locally, watch, incremental.
 #
@@ -102,8 +102,9 @@ function updateit()
 # DO NOT FORGET TO 'cp _config-base.yml _config.yml'!
 #
 
-unalias  buildprod 2> /dev/null || true
-function buildprod()
+unalias  prodit 2> /dev/null || true
+unset -f buildprod
+function prodit()
 {
 	if ! pushd ${ourdir} ; then
 	{
@@ -121,11 +122,14 @@ function buildprod()
 
 	cat _config-base.yml _config-prod.yml > _config.yml
 
-	set -x ; JEKYLL_ENV=production DISABLE_WHITELIST=true bundle exec jekyll build --future -b '' --lsi --drafts --unpublished ${*} ; set +x
+	echo -e "\n\nAbout to locally build and serve production deployment version of site."
+	echo -e "\nTest things, and when ready ftp _site/dev/* files to server.\n"
+
+	set -x ; JEKYLL_ENV=production DISABLE_WHITELIST=true bundle exec jekyll serve -w -I --future --lsi --drafts --unpublished ${*} ; set +x
 
 	popd > /dev/null
 
-} # function  buildprod()
+} # function  prodit()
 
 
 unalias  buildit 2> /dev/null || true
@@ -185,7 +189,6 @@ htmlprooferopts="      \
 --check-external-hash  \
 --check-favicon        \
 --check-html           \
---check-img-http       \
 --check-opengraph      \
 --report-invalid-tags  \
 --report-missing-names \
@@ -193,6 +196,7 @@ htmlprooferopts="      \
 "
 # --enforce-https
 # --log-level ( debug, info, warn, error, fatal )
+# --check-img-http - not used.
 
 # e.g. checkfile index.html | filterhtmlignores - for _site/index.html.
 
@@ -227,8 +231,8 @@ function filterignoredhtmlfiles()
 	{
 	#	echo ":Got line: '"${REPLY}"'"
 		if [[
-				"${REPLY}" != "- /data/dev.www.kwootc.ca/docs/_site/Test/testpage.html"
-			&&	"${REPLY}" != "- /data/dev.www.kwootc.ca/docs/_site/Test/2017-01-27-Test_Site-Variables.html"
+				"${REPLY}" != "- /data/dev.www.kwootc.ca/docs/_site/dev/Test/testpage.html"
+			&&	"${REPLY}" != "- /data/dev.www.kwootc.ca/docs/_site/dev/Test/2017-01-27-Test_Site-Variables.html"
 		]]; then
 		{
 	#		echo ":Didn't find line: Echoing."
@@ -267,6 +271,7 @@ function filterhtmlignores()
 
 function checkfile()
 {
+#	ln no longer needed, default baseurl: /dev, destination:  ./_site/dev set.
 	ln -s /data/dev.www.kwootc.ca/docs/_site /data/dev.www.kwootc.ca/docs/_site/dev
 	set -x ; { ${htmlproofercmd} ${ourdir}/_site/${*} ${htmlprooferopts} 2>&1 ; }; set +x
 } # function  checkfile()
@@ -317,6 +322,8 @@ function pushit()
 
 	set -x ; echo -e "\n*** Scripting for this command yet to be written. Get on it. ***\n" ; set +x
 
+	git status
+
 		echo
 		echo -e "\nYou will want to 'git status'."
 		echo -e "\nWhen ready, 'git commit'.\n(git commit -m \"Commit message.\""
@@ -335,5 +342,5 @@ function pushit()
 #set -x
 
 alias checkit="pushd ${ourdir} && bundle exec htmlproofer _site --assume-extension --check-favicon --check-html --check-img-http --check-opengraph --report-invalid-tags --report-missing-names --report-script-embeds 2>&1 | less ; popd > /dev/null"
-
+alias mychecks='checkfile | filterhtmlignores'
 set +v +x ; echo
