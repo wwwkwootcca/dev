@@ -2,7 +2,7 @@
 #
 # wwwkwootcca/dev - default.html Layout
 #
-layout: compress_html.min
+#layout: compress_html.min
 #
 # This is a comment.
 # str_mypagevar3:	"This is my str_mypagevar3."
@@ -25,9 +25,8 @@ layout: compress_html.min
 		{% raw %}{{ str_mypagevar3 }}{% endraw %} = '<code>{{ page.mypagevar3 }}</code>'
 -->{%endcomment%}
 
-
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<html  id="top" lang="{{ page.lang | default: site.lang | default: 'en' }}">
 
 <head>
 	<meta charset="utf-8">
@@ -129,7 +128,7 @@ layout: compress_html.min
 <!-- 	<div id="copyright">Copyright &copy; 2010 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>	-->
 
 <!-- HEADER -->
-	<header id="top" class="inner" data-proofer-ignore>
+	<header class="inner" data-proofer-ignore>
 
 		<!-- table, because I can't be bothered to continue to eff with alignment any more. -->
 		<table id="bannertable" style="-webkit-border-vertical-spacing: 0;">
@@ -183,6 +182,7 @@ layout: compress_html.min
 				<p class="copyright SubText" style="font-size:80%;margin:0">
 					<em>
 						Absent subcontent notation, all content &copy; <img src={{"/assets/images/copyrightemailaddress.png"|relative_url}} style="margin:0;padding:0;border:0;box-shadow:none;webkit-box-shadow:none;opacity:1.0;" alt=alt=&nbsp;> All Rights Reserved, used by permission.
+						<br>All content is the property of their respective owners and <i>may be UNRELEASED</i>.
 						<br>With many thanks to the many <a href="{{ "/Website_Contributors" | relative_url }}" title="Website Contributors" class="footer-link">Website Contributors</a>
 						<br>Powered by <a href="http://jekyllrb.com/" class="footer-link">Jekyll</a> and <a href="https://pages.github.com/" class="footer-link">GitHub Pages</a>.
 						</em>

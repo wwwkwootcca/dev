@@ -15,7 +15,9 @@
 #baseurl: /dev # /dev now default.
 
 
-jekyll_tidy: { compress_html: false, exclude: [] }
+jekyll_tidy: { compress_html: false, exclude: [".htaccess"] }
+jekyll_tidy: { compress_html: false, exclude: [".htaccess","/.htaccess","/dev/.htaccess",.htaccess,/.htaccess,/dev/.htaccess] }
+# - exclude doesn't work.
 
 
 # jekyll gets all unhappy with 'sass: { style: nested }'

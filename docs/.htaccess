@@ -1,27 +1,255 @@
 ---
 layout: null
 ---
+{% capture restofthisfile%}
+#
+# { % capture restofthisfile % } vacuums up all output. i.e. So it doesn't go to stdout.
+#
+# Explicitly desired output captured, and only that output is output.
+#
+# Comment and empty lines are stripped. As, of course, is anything between
+# {%comment%}{%endcomment%}
+# - it is interesting that { % captures %} can be nested.
+#
+
+#
+# Start of .htaccess header comments.
+#
+
+- See (/dev)/vars.php for server's env vars.
+- See (/dev)/regexpCheck.php for checking re's on server.
+- Regular expression tester: https://regex101.com/
+- http://htaccess.madewithlove.be/ for on the fly .htaccess testing.
+- https://github.com/phanan/htaccess htaccess recipes
+- https://github.com/nikosdion/master-htaccess/blob/master/htaccess.txt
+= a master template file.
+
+REQUEST_FILENAME: The full local filesystem path to the file or script matching the request
+(in virtual host context, == REQUEST_URI.)
+
+-f: filename, true if file exists and is a regular file. (https://httpd.apache.org/docs/2.4/expr.html)
+
+!: prefix negates (reverses) following test.
+
+
+RewriteBase URL-path
+- Sets the base URL for per-directory rewrites. Patterns match against URL-path stripped off path.
+e.g. on /dev/, /dev/index.html becomes index.html.
+
+
+RewriteCOND TestString CondPattern [flags]
+- sets condition to which subsequent RewriteRules apply. RewriteCOND's are cumulative.
+
+[flags]: ['nocase|NC' (case insensitive) | 'ornext|OR' (or next condition) | 'novary|NV' (no add vary in header response)]
+- 'rule [NC]' common.
+
+
+RewriteRule Pattern Substitution [flags]
+
+() in pattern denotes following $ contents. e.g. (.*) -> $1
+
+Substitution can be of form /index.html, http://index.html, or - (no substitution).
+
+[flags] - https://httpd.apache.org/docs/2.4/rewrite/flags.html
+e.g. '[L]' - last = stop rule processing. Common.
+
+#
+# End of .htaccess header comments.
+#
+
+# Leave a line here for easy cut/paste / maintenance, going forwards.
+{%comment%}{%endcomment%}
+
+#
+# Start of .htaccess contents:
+#
+{% capture htaccessguts %}
+
+# Never display a directory listing. (Files not to display a directory listing for, actually.)
+Options All -Indexes
 IndexIgnore *
+
+# No (index.)php, or other alternative home pages, here, only index.html.
+DirectoryIndex index.html
+
+
 ErrorDocument 404 {{"/404.html"|relative_url}}
+
+
+# No viewing of .htaccess file (via apache2, :80).
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+
+# Let page.html, /page, be the 'same'.
+# e.g. /, /index.html, /index
+Options +FollowSymLinks
+
 Options +MultiViews
+# - apparently useful / important for seo / search engines.
+#   no point having multiple versions of the same file /
+#   aggregate results / to a single destination.
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+# REMEMBER: apache strips the current directory from in front of URL-path when pattern matching.
+
+# Use URL?showvars to see what server is getting
+RewriteCond %{QUERY_STRING} showvars
+RewriteRule ^(.*)$ http://%{HTTP_HOST}/nofile.here?Received_Request_($1)_at_HTTP_HOST_(%{HTTP_HOST})_for_REQUEST_URI_(%{REQUEST_URI}) [R=301,L,QSA]
+
+
+RewriteCond %{HTTP_HOST} ^kwootc.ca$ [nc]
+RewriteRule ^(.*)$ http://www.kwootc.ca%{REQUEST_URI} [nc]
+#RewriteRule ^(.*)$ http://www.kwootc.ca/dev/$1 [r=301,nc]
+# Substitute in a prefixing www. if not present.
+# r= return error code, 301 = permanent redirect. Default is 302 = temporary.
+# nc = no case (match pattern case insensitively).
+
+RewriteCond %{HTTP_HOST} ^test.kwootc.ca$ [nc]
+RewriteRule ^(.*)$ http://www.kwootc.ca/%{REQUEST_URI} [nc]
+#RewriteRule ^(.*)$ http://www.kwootc.ca/dev/$1 [r=301,nc]
+# test.kwootc.ca -> www.kwootc.ca. Remember to take this out when -really- testing test.*
+
+# Mapping things to www. becomes important / simpler for seo, search results, etc. Certainly it's less confusing.
+
+
+# RewriteBase /dev/ - it ain't broken without this, so don't fix it!
+# - Designates what to strip off of front of incoming request 'filename' (aka name, 'pattern').
+# = DON'T "!
+# - In essence, identifies which server URLs this .htaccess cares about.
+# - 'Almost' a 'we are in /dev' declaration, except nothing says this file
+#   -has- to be in that directory. Yet if the pattern didn't lead to this directory, apache wouldn't be reading this file.
+#   e.g. A subdirectory could specify this, e.g. /dev/test, but it would make no sense for this .htacces to be in the /test directory (no /dev/ in front).
+#   (Apache would never have reason to load the /test/.htaccess on a /dev/{pattern} call.
+
+
+# On only slash, open /index.html
+#RewriteRule ^$ index.html [L]
+# On trailing slash, open /index.html
+#RewriteRule ^(.*)\/$ $1/index.html [L]
+
+## pass through requests when the page exists
+#RewriteCond %{REQUEST_FILENAME} -f
+#RewriteRule ^(.*)$ - [L]
+
+# pass anything ending in HTML - prevents infinite redirect if some following rule is buggy
+#RewriteRule ^(.*).html$ - [L]
+# tack html onto anything else
+#RewriteRule ^(.*)$ $1.html [L]
+
+
+#RewriteRule ^(?!(en|de)/)(.*)$ /dev/Test/showrequest.php?$1&$2 [L]
+#RewriteRule ^(.*)$ /dev/Test/showrequest.php?nomatch [L]
+# RewriteRule ^(.*) - [E=TEST0:%{DOCUMENT_ROOT}/dev/Test/scratch/$1.html]
+# Header set TEST_FOOBAR "%{REDIRECT_TEST0}e"
+
+
+</IfModule>
+
+{%comment%}
+#
+# End of .htaccess contents:
+#
+
+ToDo:
+
+# Always use https for secure connections
+# Replace 'www.example.com' with your domain name
+# (as it appears on your SSL certificate)
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.example.com/$1 [R=301,L]
+- may be pointless ... https goes to 443, which will never respond.
+
+# Always use www in the domain
+# Replace 'example.com' with your domain name
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^([a-z.]+)?example\.com$ [NC]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule .? http://www.%1example.com%{REQUEST_URI} [R=301,L]
+
+# Set a default home directory, (this subfolder always loads)
+# Replace 'folder' with your subfolder name
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /
+RewriteRule ^$ /folder/ [R=301,L]
+</IfModule>
+
+#Do not allow these file types to be called
+RewriteEngine on
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp|exe|swf)$ - [F,NC]
+- reverse: Only allow certain file types.
+
+Enabling SSI Via htaccess
+http://www.javascriptkit.com/howto/htaccess4.shtml
+
+
+To Be Reviewed:
+
+RewriteRule .html index.html [L]
+RewriteRule / index.html [L]
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
 
-# pass through requests when the page exists
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^(.*)$ - [L]
-# pass anything ending in HTML - prevents infinite redirect if the following rules are buggy
-RewriteRule ^(.*).html$ - [L]
 # On trailing slash, open /index.html
 RewriteRule ^(.*)\/$ $1/index.html [L]
 # Rewrite / as /index.html
 RewriteRule / /index.html [L]
-# tack html onto anything else
-RewriteRule ^(.*)$ $1.html [L]
 </IfModule>
+
+{%endcomment%}
+
+{%endcapture%  htaccessguts %}
+
+
+{% capture _LINE_FEED %}
+{% endcapture _LINE_FEED %}
+
+
+## Split at # (comments), then split at _LINE_FEED; skip comment ##
+{%capture decommented%}
+
+{%assign textblocks=htaccessguts|split:"#"%}
+
+{%assign firsttextblock = true%}
+{%assign debugtext=""%}
+
+{%for textblock in textblocks%}
+
+	{%assign textlines=textblock|split:_LINE_FEED%}
+
+	{%for textline in textlines%}
+		{%if forloop.first and firsttextblock==false%}{%continue%}{%endif%}
+		{% assign strippedtextline=textline|normalize_whitespace|strip%}{{strippedtextline}}
+		{%assign debugtext=debugtext|append:"BEFORE: '"|append:textline|append:"'"|append:_LINE_FEED|append:" AFTER: '"|append:strippedtextline|append:"'"|append:_LINE_FEED|append:_LINE_FEED%}
+	{%endfor%}
+
+	{%assign firsttextblock = false%}
+
+{%endfor%}
+
+{%endcapture decommented%}
+
+
+
+{%assign _output=""%}
+
+{%assign textlines=decommented|split:_LINE_FEED%}
+{%for textline in textlines%}
+	{%assign wstripped=textline|strip%}}
+	{%unless wstripped.size==0%}{%assign _output=_output|append:wstripped|append:_LINE_FEED%}{%endunless%}
+{%endfor%}
+
+Debugtext:
+
+{{debugtext}}
+#Jekyll tidy is/was causing line after, e.g. <IfModule mod_rewrite.c> to be indented.
+{% endcapture restofthisfile%}{{_output}}

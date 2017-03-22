@@ -261,8 +261,8 @@ function filterhtmlignores()
 	        -e '^  \*  Tag main invalid '   	\
 	        -e '^  \*  Tag article invalid '	\
 	        -e '^  \*  Tag time invalid '   	\
-	        -e '^     <a href="'				\
 	| filterignoredhtmlfiles
+#	        -e '^     <a href="'				\
 #			-e '^  \*  internally linking to '	\
 #			-e ' which does not exist (line '	\
 #	| sed -n -e "/^- \/data\/dev.www.kwootc.ca\/docs\/_site\/Test\/testpage.html$/,/^- / c - /data/dev.www.kwootc.ca/docs/_site/Test/testpage.html\n\<htmlproofer processing skipped on this test file.\>\n-"
@@ -326,7 +326,7 @@ function pushit()
 
 		echo
 		echo -e "\nYou will want to 'git status'."
-		echo -e "\nWhen ready, 'git commit'.\n(git commit -m \"Commit message.\""
+		echo -e "\nWhen ready, 'git commit'.\n(git commit -m \"Commit message.\")"
 		echo -e "\n'git log' ..."
 		echo -e "\n'git push -u origin' ..."
 		echo -e "\nIf you are working from a branch, go to PR on github. Merge.\n(Don't forget to confirm the merge.)"

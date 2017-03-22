@@ -187,7 +187,7 @@ sass: ' ```{{site.sass}}``` '|
 |
 -:|
 compress_html:|
-.ignore.envs | '```{{site.compress_html.ignore.envs|default:""|jsonify}}```'
+.ignore.envs | '```{{site.compress_html.ignore.envs|jsonify}}```'
 .comments | '```{{site.compress_html.comments|escape|jsonify}}```'
 ^
 |

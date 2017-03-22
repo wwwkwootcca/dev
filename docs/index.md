@@ -30,7 +30,7 @@ title: Kitchener-Waterloo Out Of The Cold
 
 {%assign post = site.posts.first%}
 
-[{{ post.title|escape}}]({{post.url|relative_url}}){:.ablknodec style="font-size:32px"}
+[{{ post.title|escape}}]({{post.url|relative_url}}){:.ablknodec style="font-size:28px"}
 <br>{{post.date|date: "%B %-d, %Y"}} • {{post.author}}
 {:.post-meta}
 
@@ -50,15 +50,21 @@ title: Kitchener-Waterloo Out Of The Cold
 
 ## **What is Out of the Cold?**
 
-“Out of the Cold” is a program which strives to respond, in a meaningful way to the needs of the most abandoned of our city’s poor and homeless people. These needs include the basic physical needs of shelter, food and warm clothing, and the deeply human needs of compassion, dignity and feelings of self worth. We provide a warm, welcoming atmosphere, including a nutritious meal ~~and a nice place to sleep in the winter months~~.
+“Out of the Cold” is a program which strives to respond, in a meaningful way to the needs of the most abandoned of our city’s poor ~~and homeless people~~. These needs include the basic physical needs of shelter, food and warm clothing, and the deeply human needs of compassion, dignity and feelings of self worth. We provide a warm, welcoming atmosphere, including a nutritious meal ~~and a nice place to sleep in the winter months~~.
 
 ## **Why Have an Out of the Cold program?**
 
-Homelessness is not just a problem of larger cities like Toronto. The problem exists in the Kitchener-Waterloo area. There are local agencies that offer support to the homeless, but they are often overworked and overcrowded. For a variety of reasons the homeless in our community cannot always go to the agencies that are helping our homeless. ~~Out Of The Cold provides another option.~~ (We are not a solution to the problem of homelessness, but rather an aid to help in coping with it.)
+(This) ~~Homelessness~~ is not just a problem of larger cities like Toronto. The problem exists in the Kitchener-Waterloo area. There are local agencies that offer support ~~to the homeless~~, but they are often overworked and overcrowded. For a variety of reasons the homeless in our community cannot always go to the agencies that are helping our homeless. ~~Out Of The Cold provides another option.~~ (We are not a solution to the problem ~~of homelessness~~, but rather an aid to help in coping ~~with it~~.)
 
 June 28, 2011 • msavage
 {:.site-last_update-text .right-talign}
 
+&nbsp;
+
+\* Due to individual unique operational issues, as of the Fall of 2015, all KWOOTC *overnight* programs had ceased. All current locations continue their evening meal programs. The feeling and impetus that brought life to K-W OOTC, remains.
+
+
+We invite your exploration of these pages.
 
 {%comment%}
 

@@ -43,6 +43,18 @@ img					{max-width: 100%;}
 a.ablknodec:link	{	color:Black; text-decoration:none;								}
 a.ablknodec:visited	{	color:Black; text-decoration:none;								}
 
+a[target='_blank']::after
+{
+	font-family:	"Material Icons";
+	font-size:		70%;
+	content:		"open_in_new";
+	vertical-align:	top;
+	padding-left:	4px;
+	display:		inline;
+}
+#menu * a[target='_blank']::after	{	display: none; }
+
+
 .center-talign		{	text-align:		center;											}
 .right-talign		{	text-align: 	right;											}
 
@@ -146,6 +158,7 @@ body footer a:visited
 	margin-bottom:	0;
 }
 
+// _posts, external link (news) diary entries.
 .news-article-review
 {
 //	color:	Purple;
@@ -160,14 +173,41 @@ body footer a:visited
 		text-decoration:	underline;
 	}
 
-	a[target='_blank']::after
-	{
-		font-family:	"Material Icons";
-		font-size:		70%;
-		content:		"open_in_new";
-		vertical-align:	top;
-		padding-left:	4px;
+// - moved to apply to all a[target='_blank']::after's
+//	a[target='_blank']::after
+//	{
+//		font-family:	"Material Icons";
+//		font-size:		70%;
+//		content:		"open_in_new";
+//		vertical-align:	top;
+//		padding-left:	4px;
 //		transform: scale(0.6,0.6);
-	} // == content: '\e89e'
+//	} // == content: '\e89e'
 
+}
+
+.about_us					h1,	.about_us				h2
+,.community					h1,	.community				h2
+,.location					h1,	.location				h2
+,.volunteer					h1,	.volunteer				h2
+,#CommunityLinks			h1,	#CommunityLinks			h2
+,#CommunityPhoneNumbers		h1,	#CommunityPhoneNumbers	h2
+,#CommunityResources		h1,	#CommunityResources		h2
+,#AFridayNightInFebruary	h1,	#AFridayNightInFebruary	h2
+,#StudentVideo				h1,	#StudentVideo			h2
+,#TheJacket					h1,	#TheJacket				h2
+,#HowToHelpKWOOTC			h1,	#HowToHelpKWOOTC		h2
+,#Statistics				h1,	#Statistics				h2
+,#AboutUsResources			h1,	#AboutUsResources		h2
+,#FAQ						h1,	#FAQ					h2
+,#AboutThem					h1,	#AboutThem				h2
+,#AboutYou					h1,	#AboutYou				h2
+{
+	font-weight:		bold;
+	text-decoration:	underline;
+}
+.volunteer	h3, .about_us h3, #AboutUsResources h3
+{
+	font-style:		italic;
+	text-decoration:	underline;
 }

@@ -1,7 +1,7 @@
 <!-- <div id="menu"> - inserted by caller / containing us (this menu) within it. -->
 	<ul class="menu">
 		<li>
-			<a href={{"/Diary"|relative_url}} class="parent"> <span> Diary </span> </a>
+			<a href={{"/Diary"|relative_url}}> <span> Diary </span> </a>
 		</li>
 
 		<li>
@@ -33,28 +33,61 @@
 		</li>
 
 		<li>
-			<a href={{"/Locations"|relative_url}}> <span> Locations </span> </a>
+			<a href={{"/Locations"|relative_url}} class="parent"> <span> <u>Locations</u> </span> </a>
 			<ul>
-				<li>	<a href={{"/About_Us/"|relative_url}}>	<span> About Us		</span>	</a>	</li>
-				<li>	<a href={{"/Locations/"|relative_url}}>	<span> Locations	</span>	</a>	</li>
-				<li>	<a href={{"/Volunteer/"|relative_url}}>	<span> Volunteer	</span>	</a>	</li>
-			<ul>
-				<li>	<a href={{"/About_Us/"|relative_url}}>	<span> About Us		</span>	</a>	</li>
-				<li>	<a href={{"/Locations/"|relative_url}}>	<span> Locations	</span>	</a>	</li>
-				<li>	<a href={{"/Volunteer/"|relative_url}}>	<span> Volunteer	</span>	</a>	</li>
-			<ul>
-				<li>	<a href={{"/About_Us/"|relative_url}}>	<span> About Us		</span>	</a>	</li>
-				<li>	<a href={{"/Locations/"|relative_url}}>	<span> Locations	</span>	</a>	</li>
-				<li>	<a href={{"/Volunteer/"|relative_url}}>	<span> Volunteer	</span>	</a>	</li>
-			</ul>
-			</ul>
+				{%comment%}
+					Using #targets miss the top of the page, which we probably want to make sure people see.
+					So ... let them scroll.
+					<li>	<a href={{"/Locations"|relative_url}}#StLouis>		<span> Sunday - St.Louis (Wat)						</span>	</a>	</li>
+				{%endcomment%}
+				<li>	<a href={{"/Locations"|relative_url}}>	<span style="font-size:smaller;font-family:monospace;"> Sun. - St.Louis (Wat.)								</span>	</a>	</li>
+				<li>	<a href={{"/Locations"|relative_url}}>	<span style="font-size:smaller;font-family:monospace;"> Wed. - St. Matthew's (Kit.) [<i>&amp; Thu. AM</i>]	</span>	</a>	</li>
+				<li>	<a href={{"/Locations"|relative_url}}>	<span style="font-size:smaller;font-family:monospace;"> Fri. - First (Wat.)									</span>	</a>	</li>
+				<li>	<a href={{"/Locations"|relative_url}}>	<span style="font-size:smaller;font-family:monospace;"> Sat. - Stirling (Kit.)								</span>	</a>	</li>
 			</ul>
 		</li>
 		<li>
-			<a href={{"/Volunteer"|relative_url}}> <span> Volunteer </span> </a>
+			<a href={{"/Volunteer"|relative_url}} class="parent"> <span> <u>Volunteer</u> </span> </a>
+			<ul>
+				<li>	<a href={{             "/Volunteer"|relative_url}}>	<span> Welcome to our home ...	</span>	</a>	</li>
+				<li>	<a href={{"/Volunteer#descriptions"|relative_url}}>	<span> Atypical Tasks			</span>	</a>	</li>
+				<li>	<a href={{ "/Volunteer#orientation"|relative_url}}>	<span> Orientation				</span>	</a>	</li>
+				<li>	<a href={{      "/Volunteer#sample"|relative_url}}>	<span> For Example ...			</span>	</a>	</li>
+			</ul>
+		</li>
+		<li>
+			<a href={{"/Community"|relative_url}} class="parent"> <span> <u>Community</u> </span> </a>
+			<ul>
+				<li>
+					<a href="#top" class="parent">	<span> Living K-W OOTC ...	</span>	</a>
+					<ul>
+						<li>	<a href={{	"/Community/LivingKWOOTC/AFridayNightInFebruary"|relative_url}}>	<span> A Friday Night In February	</span>	</a>	</li>
+						<li>	<a href={{	"/Community/LivingKWOOTC/TheJacket"             |relative_url}}>	<span> The Jacket					</span>	</a>	</li>
+						<li>	<a href={{	"/Community/LivingKWOOTC/StudentVideo"          |relative_url}}>	<span> Student Video				</span>	</a>	</li>
+						<li>	<a href={{	"/InTheBeginning/Home2009"     				     |relative_url}}>	<span> Home Page - 2009				</span>	</a>	</li>
+					</ul>
+				</li>
+				<li>	<a href={{   "/Community/CommunityResources"|relative_url}}>	<span> Resources			</span>	</a>	</li>
+				<li>	<a href={{       "/Community/CommunityLinks"|relative_url}}>	<span> Links				</span>	</a>	</li>
+				<li>	<a href={{"/Community/CommunityPhoneNumbers"|relative_url}}>	<span> Phone Numbers		</span>	</a>	</li>
+			</ul>
 		</li>
 		<li class="last">
-			<a href={{"/About_Us"|relative_url}}> <span> About Us </span> </a>
+			<a href={{"/About_Us"|relative_url}} class="parent"> <span> <u>About Us</u> </span> </a>
+			<ul>
+				<li>	<a href={{	                  "/About_Us"|relative_url}}>	<span> History								</span>	</a>	</li>
+				<li>	<a href={{	"/About_Us#ProgramObjectives"|relative_url}}>	<span> Program Objectives &amp; Principles	</span>	</a>	</li>
+				<li>	<a href={{	     "/About_Us#CodeOfEthics"|relative_url}}>	<span> Code of Ethics						</span>	</a>	</li>
+				<li>	<a href={{	"/About_Us#SteeringCommittee"|relative_url}}>	<span> Steering Committee					</span>	</a>	</li>
+				<li>	<a href={{	       "/About_Us#GuestRules"|relative_url}}>	<span> Common Guest Rules & Confidentiality	</span>	</a>	</li>
+				<li>	<a href={{	  "/About_Us/HowToHelpKWOOTC"|relative_url}}>	<span> How You Can Help							</span>	</a>	</li>
+				<li>	<a href={{	       "/About_Us/Statistics"|relative_url}}>	<span> Statistics							</span>	</a>	</li>
+				<li>	<a href={{	 "/About_Us/AboutUsResources"|relative_url}}>	<span> Resources							</span>	</a>	</li>
+				<li>	<a href={{	              "/About_Us/FAQ"|relative_url}}>	<span> Frequently Asked Questions			</span>	</a>	</li>
+				<li>	<a href={{	        "/About_Us/AboutThem"|relative_url}}>	<span> About 'Them'							</span>	</a>	</li>
+				<li>	<a href={{	         "/About_Us/AboutYou"|relative_url}}>	<span> About You							</span>	</a>	</li>
+				<li>	<a href={{	                "/Contact_Us"|relative_url}}>	<span> Media Contact						</span>	</a>	</li>
+				</ul>
 		</li>
 	</ul class="menu">
 <!-- </div id="menu"> -->

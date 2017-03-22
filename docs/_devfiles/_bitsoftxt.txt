@@ -1,0 +1,138 @@
+duM&#@N@Ymy5
+
+www.kwootc.ca/docs/_site/dev/Diary/2017/02/07/HHUG-A-Systems-Approach-To-Homelessness-Calls-For-Prevention.html
+http://localhost:4000/dev/Diary/2017/02/07/HHUG-A-Systems-Approach-To-Homelessness-Calls-For-Prevention
+
+- line below stylesheet
+<link type="application/atom+xml" rel="alternate" href="http://github.com/dev/feed.xml" title="KWOOTC">
+
+
+if first (always present, never starts a comment.)
+split at newline.
+output first
+while newline output
+
+
+if first, spit out.
+else remove beginning to newline.
+
+---
+pre_befores = _content | split: "<pre"
+_content = ""
+
+for each pre_before (i.e. run once), pre_befores = contents, <pre stripped.
+	_pres = _pre_before | split: "</pre>" - contents between <pre> and </pre> -> _pres
+	_pres_after = ""
+
+	if _pres not empty
+
+
+
+if forloop.first
+- spit out line
+else
+- swallow beginning of line to line feed
+- spit out rest
+
+
+{% assign _pre_befores = _content | split: "<pre" %}
+{% assign _content = "" %}
+{% for _pre_before in _pre_befores %}
+  {% assign _pres = _pre_before | split: "</pre>" %}
+  {% assign _pres_after = "" %}
+
+  {% if _pres.size != 0 %}
+    {% if site.compress_html.blanklines %}
+      {% assign _lines = _pres.last | split: _LINE_FEED %}
+      {% capture _pres_after %}
+        {% for _line in _lines %}
+          {% assign _trimmed = _line | split: " " | join: " " %}
+          {% if _trimmed != empty or forloop.last %}
+            {% unless forloop.first %}
+              {{ _LINE_FEED }}
+            {% endunless %}
+            {{ _line }}
+          {% endif %}
+        {% endfor %}
+      {% endcapture %}
+    {% else %}
+      {% assign _pres_after = _pres.last | split: " " | join: " " %}
+    {% endif %}
+  {% endif %}
+
+  {% capture _content %}
+    {{ _content }}
+    {% if _pre_before contains "</pre>" %}<pre{{ _pres.first }}</pre>{% endif %}
+    {% unless _pre_before contains "</pre>" and _pres.size == 1 %}{{ _pres_after }}{% endunless %}
+  {% endcapture %}
+{% endfor %}
+{% if _profile %}
+  {% assign _profile_collapse = _content | size | plus: 1 %}
+{% endif %}
+
+
+
+
+
+<p>before pic:</p>
+{%comment%}
+<img src="{{/assets/images/StLouis1.png|relative_url}}" alt="St. Louis"/>
+{%endcomment%}
+<p>:after pic.</p>
+
+{%endraw%}
+
+{%comment%}
+http://localhost:4000/dev/Locations/%7B%7B%20'/assets/images/StLouis1.png'%20%7C%20relative_url%20%7D%7D
+http://localhost:4000/dev/assets/images/StLouis1.png
+{%endcomment%}
+{%comment%}{%endcomment%}
+![]({{"/assets/images/StLouis1.png"|relative_url}} "St. Louis"){:style="width:40%"}
+{%comment%}
+<iframe src="https://www.google.com/maps/d/embed?mid=185nD_1nNVqbe0k9oC74BlE5ZQZU&hl=en" align="right"></iframe>
+{%endcomment%}
+
+
+2012-13 - .YOY includes
+2013-14 - last year all OOTC's
+2014-15 -
+2015-16 -
+2016-17 - this year
+2017-18 - next year
+
+FAQ
+
+About You
+
+About Them
+
+You cannot be homeless and not be depressed. wp
+
+they have no hope wp
+
+it's all about mental health wp
+
+only government has the capacity to deal with mental health - it involves all
+levels of government
+
+e.g. local intensification / zoning
+prov health
+feds ? strategy?
+
+being a volunteer, evening only program, nothing we can do. Except point you
+towards X.
+
+Please let your political representatives know of your concerns.
+
+My society is better than this.
+
+lynn - if it were easy, it would be solved already.
+
+- completely volunteer run, no paid staff.
+
+You are not expected to be here for the duration of the program, but the desk
+must be manned at all times once we open, BUT this job will be on the list for
+all shifts.
+
+Remember it is easier to not allow someone in, than to try and remove them
+later.

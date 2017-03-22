@@ -1,4 +1,3 @@
-{%include myliquidvars.liquid%}
 {%raw%}
 <!--
 © wwwkwootccaatusers.noreply.github.com, All rights reserved.
@@ -48,3 +47,19 @@ Find out:
 = if Front Matter, jekyll examines, yaml -> liquid -> markdown (?)
 
 {%endcomment%}
+
+{%capture NothingToOutputHere%}
+
+{%assign str_myliquidvar1 = 'This is the str_myliquidvar1 var from _includes/myliquidvars' %}
+
+{%assign dlbs = "{{" %}
+{%assign drbs = "}}" %}
+{%assign hrx2 = "<hr><hr>" %}
+{%assign hrx3 = "<hr><hr><hr>" %}
+{%assign hrx4 = "<hr><hr><hr><hr>" %}
+{%assign hrx5 = "<hr><hr><hr><hr><hr>" %}
+
+{%assign ThankYouForAllThatYouDo = "**&quot;Thank you for all that you do - <u>together</u> we make what we do possible, for each other, and for our guests.&quot;**
+{:.center-talign style='color:DarkGreen;'}"%}
+
+{%endcapture%}
