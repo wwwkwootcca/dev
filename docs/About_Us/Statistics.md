@@ -24,8 +24,12 @@ All data, charts, and stats founded upon the dedicated work, and with the gratef
 
 <br>
 <center><iframe src="http://tiny.cc/kwootc2016-17stats-chart" width="936" height="620"></iframe></center>
+(If the box above is blank, please click [K-W OOTC 2016-17 Chart](//tiny.cc/kwootc2016-17stats-chart){:target="_blank"}.)
+{:.right-talign}
 <br>
 <center><iframe src="http://tiny.cc/kwootc2016-17stats-view"  width="896" height="870"></iframe></center>
+(If the box above is blank, please click [K-W OOTC 2016-17 Supper Counts](//tiny.cc/kwootc2016-17stats-view){:target="_blank"}.)
+{:.right-talign}
 
 {::comment}
 http://tiny.cc/kwootc2016-17stats-chart?gid=749859721&single=true&widget=false&chrome=false

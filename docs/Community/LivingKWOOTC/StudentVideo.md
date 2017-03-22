@@ -24,7 +24,10 @@ title: The Jacket
 
 &nbsp;
 
-<center><iframe src="http://www.youtube.com/embed/fXUvWO0JKCU" width="840" height="630"></iframe></center>
+<center><iframe src="//www.youtube.com/embed/fXUvWO0JKCU" width="840" height="630"></iframe></center>
+(If the box above is blank, please click [Student Video](//www.youtube.com/watch?v=fXUvWO0JKCU){:target="_blank"}.)
+{:.right-talign}
+
 
 &nbsp;
 

@@ -114,3 +114,5 @@ Although each location's particulars are different, the overall premise and exec
 &nbsp;
 
 <center><iframe src="http://tiny.cc/kwootcfriVhbookCurEmb"  width="936" height="616"></iframe></center>
+(If the box above is blank, please click [Friday Volunteer Handbook](//tiny.cc/kwootcfriVhbookCurEmb){:target="_blank"}.)
+{:.right-talign}
