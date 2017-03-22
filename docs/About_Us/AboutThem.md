@@ -90,9 +90,9 @@ Welcome.
 
 &nbsp;
 
-Please let your [local political representatives](//kitchener.foundlocally.com/Local/Government.asp "Kitchener-Waterloo Government, Politicians & Poltics Resources and Info"){:target="_blank"} know of your concerns.
+Please let your [local political representatives](http://kitchener.foundlocally.com/Local/Government.asp "Kitchener-Waterloo Government, Politicians & Poltics Resources and Info"){:target="_blank"} know of your concerns.
 
-["If it was easy ...we would have solved it"](//www.therecord.com/news-story/4305530-homeless-lose-a-place-to-stay-as-out-of-cold-site-set-to-close/ "Lynn Macaulay - The Record"){:target="_blank"} <sub>&#8208;&#8208; LM ([HHUG](//www.hhug.ca/ "Because Everyone Deserves a Home"){:target="_blank"})</sub>
+["If it was easy ...we would have solved it"](//www.therecord.com/news-story/4305530-homeless-lose-a-place-to-stay-as-out-of-cold-site-set-to-close/ "Lynn Macaulay - The Record"){:target="_blank"} <sub>&#8208;&#8208; LM ([HHUG](http://www.hhug.ca/ "Because Everyone Deserves a Home"){:target="_blank"})</sub>
 
 &nbsp;
 
@@ -127,7 +127,7 @@ We cannot do it alone, or in isolation.
 
 It's not _somebody else's problem_, it's _everyone's problem_. And we need everyone to _step up_ and to put _their own direct <u>time</u>_ into addressing it.
 
-Please let your [local political representatives](//kitchener.foundlocally.com/Local/Government.asp "Kitchener-Waterloo Government, Politicians & Poltics Resources and Info") know of your concerns. Work with like minded friends, neighbours, acquantances - let them know that a significant part of _their constituency_ wants _them_ to collectively work on it, harder.
+Please let your [local political representatives](http://kitchener.foundlocally.com/Local/Government.asp "Kitchener-Waterloo Government, Politicians & Poltics Resources and Info") know of your concerns. Work with like minded friends, neighbours, acquantances - let them know that a significant part of _their constituency_ wants _them_ to collectively work on it, harder.
 
 March 20, 2017 • BS
 {:.site-last_update-text .right-talign}
