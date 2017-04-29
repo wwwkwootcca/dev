@@ -42,7 +42,7 @@ You will never be asked to do anything you are not comfortable with, there are a
 
 ### Safety matters ...
 
-At the same time, being on a larger scale than a typical home, additional concerns are are covered - be it food safety, personal safety, or guests in distress or upset as they try to cope with their trying circumstances.
+At the same time, being on a larger scale than a typical home, additional concerns are also covered - be it food safety, personal safety, or guests in distress or upset as they try to cope with their trying circumstances.
 
 Food safety is a paramount concern, as all are *inspected kitchens* and must meet *Public Health* requirements  - not passing would mean the hosting organizations generously donating their facilities would not be permitted to carry out their many non-OOTC activities. Your best defense, *frequent hand washing* is stressed (gloves have proven to be counter-productive to good safe food handling practices). Hand sanitizers have proven to be a demonstrably poor substitute for hand washing.
 
@@ -63,7 +63,7 @@ Please bear in mind that some of the most popular areas require the fewest, most
 
 ### Frequency ...
 
-Most volunteers come out every other week. Other volunteers come out but once a month, or not at all - there are many activities outside program hours that need doing. Be it shopping, driving, Christmas or other baking, or other annual activities. Special events can be ... special, too. For example *Superbowl Sunday&trade;*!
+Most volunteers come out every other week. Other volunteers come out but once a month, or not at all - there are many activities outside program hours that need doing. Be it shopping, driving, Christmas or other baking, or other annual activities. Special events can be ... special, too. For example *Superbowl&trade; Sunday*!
 
 Volunteering every week can prove to be quite draining, particularly for new volunteers, and may be quite discouraged. The KWOOTC season of November through April is quite long - the *February blahs* have shown themselves to be quite real.
 
