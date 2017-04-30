@@ -72,8 +72,8 @@ incremental:   true
 # baseurl: "" # does not include hostname
 #          Keep set to non-blank - blank will always work, not so, reversed.
 #          - keep reversed so issues are identified early.
-# baseurl: ""
-baseurl: "/dev" # when on github. K.I.S.S., be /dev everywhere.
+baseurl: ""
+# baseurl: "/dev" # when on github. K.I.S.S., be /dev everywhere.
 # show_dir_listing: false
 show_dir_listing: false
 #
