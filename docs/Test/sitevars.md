@@ -1,10 +1,15 @@
 ---
 layout: post
-title: "Test - vars?"
+title: "sitevars"
 date: 2017-01-27
 ---
 
 jekyll environment is '```{{ jekyll.environment }}```'
+
+baseurl is '```{{ site.baseurl }}```'
+source is '```{{ site.source }}```'
+destination is '```{{ site.destination }}```'
+url is '```{{ site.url }}```'
 
 site:
 <br>.time = '```{{site.time|date: '%B %-d, %Y'}}```'
