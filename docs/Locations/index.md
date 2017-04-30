@@ -103,7 +103,7 @@ This also didn't work:
 
 &nbsp;
 
-## Friday - K-W OOTC Fridays@First
+## Friday - Fridays@First
 {:#First}
 
 [16 William St. W.<br>Waterloo, ON<br>N2L 1J3<br>](//web.grt.ca/HastinfoWeb/TravelPlans?DestinationIdentifier=16%20William%20Street%20West%2C%20Waterloo%2C%20ON "First United Bus Info")
