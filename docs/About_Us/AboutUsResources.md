@@ -2,7 +2,7 @@
 layout: mydefault
 title: KWOOTC - Resources
 ---
-{%include header_md.md%}
+{%comment%}{%include header_md.md%} <- Causing "Your site is having problems building: A file was included in docs/About_Us/AboutUsResources.md that is a symlink or does not exist in your _includes directory. For more information, see https://help.github.com/articles/page-build-failed-file-is-a-symlink/." Comment it out while we debug this.{%endcomment%}
 
 # {{page.title}}:
 {:.no_toc}
