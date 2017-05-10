@@ -192,7 +192,7 @@ compress_html:|
 ^
 |
 -:|
-feed_meta:|'```{% capture mymeta %}{% feed_meta %}{%endcapture%}{{mymeta|default:""|jsonify}}```'
+feed_meta:|'```{% capture mymeta %}\{% feed_meta %\}{%endcapture%}{{mymeta|default:""|jsonify}}```'
 
 &nbsp;
 
