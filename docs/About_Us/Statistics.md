@@ -23,12 +23,12 @@ All data, charts, and stats founded upon the dedicated work, and with the gratef
 ## Current Year
 
 <br>
-<center><iframe src="http://tiny.cc/kwootc2016-17stats-chart" width="936" height="620"></iframe></center>
-(If the box above is blank, please click [K-W OOTC 2016-17 Chart](//tiny.cc/kwootc2016-17stats-chart){:target="_blank"}.)
+<center><iframe src="http://tiny.cc/kwootcCurrentStats-chart" width="936" height="620"></iframe></center>
+(If the box above is blank, please click [K-W OOTC Current Chart](//tiny.cc/kwootcCurrentStats-chart){:target="_blank"}.)
 {:.right-talign}
 <br>
-<center><iframe src="http://tiny.cc/kwootc2016-17stats-view"  width="896" height="870"></iframe></center>
-(If the box above is blank, please click [K-W OOTC 2016-17 Supper Counts](//tiny.cc/kwootc2016-17stats-view){:target="_blank"}.)
+<center><iframe src="http://tiny.cc/kwootcCurrentStats-view"  width="896" height="870"></iframe></center>
+(If the box above is blank, please click [K-W OOTC Current Supper Counts](//tiny.cc/kwootcCurrentStats-view){:target="_blank"}.)
 {:.right-talign}
 
 {::comment}
@@ -41,6 +41,7 @@ https://docs.google.com/spreadsheets/d/1_oIiZl6HjMGp2Kg2J4nqvzK8nP52FFot3eisTP2D
 
 ## Past Years
 
+1. [2016-2017]({{"/assets/downloads/kwootc2016-17stats"|relative_url}} "B. Switzer, L. Murray Gorvett")
 1. 2015-2016
 1. 2014-2015
 
