@@ -41,7 +41,7 @@ https://docs.google.com/spreadsheets/d/1_oIiZl6HjMGp2Kg2J4nqvzK8nP52FFot3eisTP2D
 
 ## Past Years
 
-1. [2016-2017]({{"/assets/downloads/kwootc2016-17stats"|relative_url}} "B. Switzer, L. Murray Gorvett")
+1. [2016-2017]({{"/assets/downloads/kwootc2016-17stats.pdf"|relative_url}} "B. Switzer, L. Murray Gorvett")
 1. 2015-2016
 1. 2014-2015
 
