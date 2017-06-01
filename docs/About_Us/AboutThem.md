@@ -96,7 +96,7 @@ Please let your [local political representatives](http://kitchener.foundlocally.
 
 &nbsp;
 
-<sup>*</sup> The real wonder is society's apparent mutual fantasy ([Wishful Thinking](//en.wikipedia.org/wiki/Wishful_thinking "the formation of beliefs and making decisions according to what might be pleasing to imagine instead of by appealing to evidence, rationality, or reality."){:target="_blank"}) that a _[magic wand](http://disney.wikia.com/wiki/Magic_Wand "Bibbidi Bobbidi Boo"){:target="_blank"}_ will somehow appear out of thin air, to just be waved and somehow _make it all better_ <a href="http://disney.wikia.com/wiki/File:September182.gif" title="" target="_blank"> - by themselves, and on their own.
+<sup>*</sup> The real wonder is society's apparent mutual fantasy ([Wishful Thinking](//en.wikipedia.org/wiki/Wishful_thinking "the formation of beliefs and making decisions according to what might be pleasing to imagine instead of by appealing to evidence, rationality, or reality."){:target="_blank"}) that a _[magic wand](http://disney.wikia.com/wiki/Magic_Wand "Bibbidi Bobbidi Boo"){:target="_blank"}_ will somehow appear out of thin air, to just be waved and somehow _make it all better_ <a href="http://disney.wikia.com/wiki/File:September182.gif" title="" target="_blank"></a> - by themselves, and on their own.
 
 {::comment}Yes, the second disney link/image above doesn't appear. Buggy software. You have been warned.{:/comment}
 
